@@ -4,7 +4,7 @@
   <%= image_tag @item.cat_picture, alt: "#{@item.title}" %>
 <%else%>
   <p>=== Il n'y a pas encore d'image produit ===</p>
-  <%= form_tag(item_cat_pictures_path(params[:id]), method: :post, class: "form", remote: true) do %>
+  <%= form_tag(item_cat_pictures_path(@item), method: :post, multipart: true, remote: true) do %>
   <%= file_field_tag :cat_picture %>
   <%= submit_tag "Uploader l'image" %>
   <% end %>
