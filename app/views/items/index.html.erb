@@ -1,5 +1,5 @@
 <div class="grid">
-	<% @items.each do |item| %>
+	<% @items.sort.each do |item| %>
 	<%= render 'card', item: item %>
 	<% end -%>
 </div>
