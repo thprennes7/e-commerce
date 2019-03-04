@@ -1,0 +1,11 @@
+<nav class="navbar">
+	<a href=<%= root_path %>><h1 class="navbar-brand">Cat Shop</h1></a>
+	<div class="dropdown">
+		<h3 class="dropdown-toggler">Compte</h3>
+		<div class="dropdown-menu secondary f-column">
+			<%= link_to "Connexion", new_user_session_path, :class => "dropdown-item" %>
+			<%= link_to "Inscription", new_user_registration_path, :class => "dropdown-item" %>
+			<%= link_to "Mon panier", :class => "dropdown-item" %>
+		</div>
+	</div>
+</nav>
