@@ -10,5 +10,5 @@ require 'faker'
 Item.destroy_all
 
 20.times do
-  Item.create!(price: rand(10..50), description: Faker::Lorem.paragraph(9), title: Faker::Creature::Cat.breed, img_url: Faker::Avatar.image)
+  Item.create!(price: rand(10..50), description: Faker::Lorem.paragraph(9), title: Faker::Creature::Cat.breed, image_url: Faker::Avatar.image)
 end
