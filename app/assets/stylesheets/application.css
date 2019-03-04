@@ -16,15 +16,15 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab');
 
 :root {
-	--primary-color: #0434EC;
-	--secondary-color: #04BCCC;
-	--dark-color: #6C6C6C;
-	--mediumlight-color: #C4C4C4;
-	--light-color: #EAEAEA;
+	--primary-color: #FF66C9;
+	--secondary-color: #FFB8E6;
+	--dark-color: #1A1A1A;
+	--mediumlight-color: #756C72;
+	--light-color: #C495B4;
 	--warning-color: #F48C0C;
 	--danger-color: #E40404;
 	--info-color: #0C6CD4;
-	--success-color: #5CD444;
+	--success-color: #FF24B2;
 }
 
 * {
