@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab');
 
 :root {
-	--primary-color: #7C2969;
-	--secondary-color: #B97CAC;
+	--primary-color: #3D0ABC;
+	--secondary-color: #E30054;
 	--dark-color: #6C6C6C;
-	--mediumlight-color: #C4C4C4;
-	--light-color: #EAEAEA;
+	--mediumlight-color: #F66FA1;
+	--light-color: #FBB0CB;
 	--warning-color: #F48C0C;
 	--danger-color: #E40404;
-	--info-color: #0C6CD4;
+	--info-color: #FFD900;
 	--success-color: #5CD444;
 }
 
