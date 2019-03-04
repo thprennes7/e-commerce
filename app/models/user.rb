@@ -4,13 +4,14 @@ class User < ApplicationRecord
   has_many :items, through: :order
 
   # validates
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+#ybo : not possible for the moment
+#ybo  validates :first_name, presence: true
+#ybo  validates :last_name, presence: true
   validates :email,
     presence: true,
     uniqueness: true,
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Email non valide" }
-  has_secure_password
+  
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
