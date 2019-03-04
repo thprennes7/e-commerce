@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <header class="primary">
+        <%= render '/layouts/nav' %>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+      <footer class="d-flex f-middle">
+        <%= render '/layouts/footer' %>
+      </footer>
+    </div>
   </body>
 </html>
