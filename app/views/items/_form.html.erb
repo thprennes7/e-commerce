@@ -12,15 +12,7 @@
 <% end %>
 
 <div class="field">
-
-<%= file_field_tag :cat_picture %>
-
-<%= submit_tag "Uploader la photo" %>
-</div>
-
-<div class="field">
-  <%= form.label :item_id %>
-  <%= form.text_field :item_id %>
+<%= form.file_field :cat_picture %>
 </div>
 
 <div class="field">
