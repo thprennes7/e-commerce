@@ -1,4 +1,4 @@
-#Projet E-commerce
+# Projet E-commerce
 
 Ceci est le repo du projet de E-commerce du groupe THP Rennes 7
 
