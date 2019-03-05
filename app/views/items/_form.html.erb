@@ -1,3 +1,8 @@
+<%= form_tag item_cat_pictures_path(item), method: :post, multipart: true, remote: true do %>
+  <%= file_field_tag :cat_picture %>
+  <%= submit_tag "Uploader l'image"%>
+<% end %>
+
 <%= form_with(model: item, local: true) do |form| %>
 <% if item.errors.any? %>
 <div id="error_explanation">
@@ -11,27 +16,20 @@
 </div>
 <% end %>
 
-
-<div class="">
-<%= form.file_field :cat_picture %>
-</div>
-
-<div class="">
+<div class="form-group">
   <%= form.label :price %>
-  <%= form.text_field :price %>
+  <%= form.text_field :price, class:"form-control" %>
 </div>
 
-<div class="">
+<div class="form-group">
   <%= form.label :title %>
-  <%= form.text_field :title %>
+  <%= form.text_field :title, class:"form-control" %>
 </div>
 
-<div class="">
+<div class="form-group">
   <%= form.label :description %>
-  <%= form.text_area :description %>
+  <%= form.text_area :description, class:"form-control" %>
 </div>
 
-<div class="btn btn-info">
-  <%= form.submit %>
-</div>
+<%= form.submit class:"btn btn-info" %>
 <% end %>

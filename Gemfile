@@ -3,12 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-#test by yann 
-
+#test by yann
+gem "aws-sdk-s3", require: false
 gem 'dotenv-rails'
 gem 'faker'
 gem 'devise'
 gem 'table_print'
+gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

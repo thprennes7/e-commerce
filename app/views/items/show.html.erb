@@ -1,11 +1,19 @@
 <p id="notice"><%= notice %></p>
+<section class="col-8 offset-2 d-flex align-items-center justify-content-between mb-4">
+  <% if @item.cat_picture.attached? %>
 
-<img src="<%= @item.cat_picture %>" alt="cat">
+  <%= image_tag @item.cat_picture, class: "rounded float-left", alt: "cat" %>
 
-<p>Price: <%= @item.price %></p>
+  <% else %>
 
-<p>Title: <%= @item.title %></p>
+  <p class="text-warning">Pas d'image uploadé</p>
 
-<p>Description: <%= @item.description %></p>
-
-<p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
+  <% end %>
+  <article class="col-4">
+    <h2 class="text-primary"><%= @item.title %></h2>
+    <p><%= @item.description %></p>
+    <p><%= @item.price %>€</p>
+    <p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
+    <button type="button" class="btn btn-outline-dark">Ajouter à mon panier</button>
+  </article>
+</section>

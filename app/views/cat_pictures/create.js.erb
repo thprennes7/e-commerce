@@ -1,5 +1,3 @@
 console.log("OUAISISS");
-$p = $('p');
-$( $p[1] ).remove();
-$('form').remove();
-$('#notice').after("<%= j render 'image', item: @item %>");
+$($('form')[0]).remove();
+$('h1').after("<%= j render 'image', item: @item %>");

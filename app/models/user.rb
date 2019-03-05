@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :new_order
+  after_create :order_send
   has_many :orders
   has_many :carts
   has_many :items, through: :order
@@ -21,7 +21,10 @@ class User < ApplicationRecord
 
 private
 
-  def new_order
-    
+  def order_send
+    @user = user
+    if @user.is_admin?
+
+    end
   end
 end
