@@ -1,9 +1,4 @@
 module ApplicationHelper
-<<<<<<< HEAD
-
-  def is_admin?(user)
-    user.admin == true
-=======
 	def check_access_authorization(user)
     unless is_current_user?(user)
       redirect_to root_path
@@ -13,8 +8,7 @@ module ApplicationHelper
   def is_current_user?(user)
   	current_user == user
   end
-  def is_admin?
-    self.admin == true
->>>>>>> guillaume
+  def is_admin?(user)
+    user.admin == true
   end
 end
