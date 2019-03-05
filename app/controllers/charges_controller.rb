@@ -4,6 +4,7 @@ end
 
 def create
   # Amount in cents
+  @item = Item.find(params[:id])
   @amount = 500
 
   customer = Stripe::Customer.create({
@@ -22,4 +23,5 @@ rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_charge_path
 end
+  order_send(@user, @item)
 end

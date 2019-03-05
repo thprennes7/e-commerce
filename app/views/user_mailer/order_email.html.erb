@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.first_name %> !</h1>
+    <p>
+      Tu as reçu une nouvelle commande pour les cartes suivante:</p>
+        <% @item.each do |item| %>
+    <p>- <%= item.image_url%> <%= item.title %></p>
+
+    <p>
+      Pour accéder à ton espace admin, connecte-toi via : <%= link_to "e-commerce", root_path %>.
+    </p>
+    <p> À très vite !
+  </body>
+</html>
