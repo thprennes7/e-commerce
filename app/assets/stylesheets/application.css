@@ -2,15 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab');
 
 :root {
-	--primary-color: #3D0ABC;
-	--secondary-color: #E30054;
-	--dark-color: #6C6C6C;
-	--mediumlight-color: #F66FA1;
-	--light-color: #FBB0CB;
-	--warning-color: #F48C0C;
-	--danger-color: #E40404;
-	--info-color: #FFD900;
-	--success-color: #5CD444;
+	--primary-color: #F9D57C;
+	--secondary-color: #EAA4B1;
+	--dark-color: #595959;
+	--mediumlight-color: #B9B9B9;
+	--light-color: #E1E1E1;
+	--warning-color: #F9D57C;
+	--danger-color: #EAA4B1;
+	--info-color: #A98CE5;
+	--success-color: #6ED270;
+
+	--grid-column: 12;
 }
 
 * {
@@ -75,40 +77,40 @@ footer {
 	padding: 1%;
 }
 .col-1 {
-	width: calc(1 * (100% / 12));
+	width: calc(1 * (100% / var(--grid-column)));
 }
 .col-2 {
-	width: calc(2 * (100% / 12));
+	width: calc(2 * (100% / var(--grid-column)));
 }
 .col-3 {
-	width: calc(3 * (100% / 12));
+	width: calc(3 * (100% / var(--grid-column)));
 }
 .col-4 {
-	width: calc(4 * (100% / 12));
+	width: calc(4 * (100% / var(--grid-column)));
 }
 .col-5 {
-	width: calc(5 * (100% / 12));
+	width: calc(5 * (100% / var(--grid-column)));
 }
 .col-6 {
-	width: calc(6 * (100% / 12));
+	width: calc(6 * (100% / var(--grid-column)));
 }
 .col-7 {
-	width: calc(7 * (100% / 12));
+	width: calc(7 * (100% / var(--grid-column)));
 }
 .col-8 {
-	width: calc(8 * (100% / 12));
+	width: calc(8 * (100% / var(--grid-column)));
 }
 .col-9 {
-	width: calc(9 * (100% / 12));
+	width: calc(9 * (100% / var(--grid-column)));
 }
 .col-10 {
-	width: calc(10 * (100% / 12));
+	width: calc(10 * (100% / var(--grid-column)));
 }
 .col-11 {
-	width: calc(11 * (100% / 12));
+	width: calc(11 * (100% / var(--grid-column)));
 }
 .col-12 {
-	width: calc(12 * (100% / 12));
+	width: calc(12 * (100% / var(--grid-column)));
 }
 
 /* --- Positions --- */
@@ -408,5 +410,26 @@ textarea {
 	display: flex;
 }
 .dropdown-item {
-	margin: 5px 0;
+	margin: 5px;
+}
+
+
+
+/*** Media queries ***/
+@media screen and (max-width: 970px) {
+	:root {
+		--grid-column: 9;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	:root {
+		--grid-column: 6;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	:root {
+		--grid-column: 3;
+	}
 }
