@@ -1,9 +1,9 @@
-<%= form_tag item_cat_pictures_path(item), method: :post, multipart: true, remote: true do %>
+<%= form_tag item_cat_pictures_path(item), method: :post, multipart: true, remote: true, class:"d-flex flex-column align-items-start" do %>
   <%= file_field_tag :cat_picture %>
-  <%= submit_tag "Uploader l'image"%>
+  <%= submit_tag "Uploader l'image", class:"btn btn-info m-2" %>
 <% end %>
 
-<%= form_with(model: item, local: true) do |form| %>
+<%= form_with(model: item, local: true, class:"d-flex flex-column align-items-start") do |form| %>
 <% if item.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -26,10 +26,10 @@
   <%= form.text_field :title, class:"form-control" %>
 </div>
 
-<div class="form-group">
+<div class="form-group align-self-stretch">
   <%= form.label :description %>
   <%= form.text_area :description, class:"form-control" %>
 </div>
 
-<%= form.submit class:"btn btn-info" %>
+<%= form.submit class:"btn btn-info m-2" %>
 <% end %>
