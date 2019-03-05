@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :welcome_send
+  after_create :new_order
   has_many :orders
   has_many :carts
   has_many :items, through: :order
@@ -19,7 +19,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  def welcome_send
-    UserMailer.welcome_email(self).deliver_now
+private
+
+  def new_order
+    
   end
 end
