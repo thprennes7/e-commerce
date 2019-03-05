@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<img src="<%= @item.cat_picture %>" alt="cat">
-
-<p>Price: <%= @item.price %></p>
-
-<p>Title: <%= @item.title %></p>
-
-<p>Description: <%= @item.description %></p>
-
-<p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
+<section class="col-8 offset-2 d-flex align-items-center justify-content-between mb-4">
+  <img class="rounded float-left" src="<%= @item.cat_picture %>" alt="cat">
+  <article class="col-4">
+    <h2 class="text-primary"><%= @item.title %></h2>
+    <p><%= @item.description %></p>
+    <p><%= @item.price %>€</p>
+    <p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
+    <button type="button" class="btn btn-outline-dark">Ajouter à mon panier</button>
+  </article>
+</section>
