@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<img src="<%= @item.cat_picture %>" alt="cat">
+<% if @item.cat_picture.attached? %>
+
+<%= image_tag @item.cat_picture %>
+
+<% else %>
+
+<p>Pas d'image uploadé</p>
+
+<% end %>
 
 <p>Price: <%= @item.price %></p>
 
