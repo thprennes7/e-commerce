@@ -22,5 +22,5 @@ rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_charge_path
 end
-  order_send(@user.id)
+  order_send(@user)
 end
