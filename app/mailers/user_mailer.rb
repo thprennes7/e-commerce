@@ -11,14 +11,16 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
-  def order_send(user)
+  def order_send(user, item)
+    @item = item
     @user = user
     if @user.is_admin?
       UserMailer.order_email.deliver_now
     end
   end
 
-  def order_email(user)
+  def order_email(user, item)
+    @item = item
     @user = user
     mail(to: @user.email, subject: 'Nouvel achat')
   end

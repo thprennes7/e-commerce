@@ -6,12 +6,13 @@
   <body>
     <h1>Salut <%= @user.first_name %> !</h1>
     <p>
-      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : <%= @user.email %>.
-    </p>
+      Tu as reçu une nouvelle commande pour les cartes suivante:</p>
+        <% @item.each do |item| %>
+    <p>- <%= item.image_url%> <%= item.title %></p>
+
     <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+      Pour accéder à ton espace admin, connecte-toi via : <%= link_to "e-commerce", root_path %>.
     </p>
-    <p> À très vite sur monsite.fr !
+    <p> À très vite !
   </body>
 </html>
-  
