@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	resources :carts, only: [:show]
   resources :items do
     resources :cat_pictures, only: [:create]
   end
