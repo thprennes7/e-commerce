@@ -6,18 +6,18 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-
+  <div class="form-group d-flex flex-column align-items-start">
     <%= f.label :password, "Nouveau mot de passe " %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  </div>
 
-
-  
+  <div class="form-group d-flex flex-column align-items-start">
     <%= f.label :password_confirmation, "Confirmez votre mot de passe" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
- 
+  </div>
 
  
     <%= f.submit "Change my password", class:"btn btn-warning " %>
