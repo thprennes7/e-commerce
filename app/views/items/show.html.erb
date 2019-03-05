@@ -1,29 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<%if @item.cat_picture.attached?%>
-  <%= image_tag @item.cat_picture, alt: "#{@item.title}" %>
-<%else%>
-  <p>=== Il n'y a pas encore d'image produit ===</p>
-  <%= form_tag(item_cat_pictures_path(@item), method: :post, multipart: true, remote: true) do %>
-  <%= file_field_tag :cat_picture %>
-  <%= submit_tag "Uploader l'image" %>
-  <% end %>
-<%end%>
+<img src="<%= @item.cat_picture %>" alt="cat">
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+<p>Price: <%= @item.price %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+<p>Title: <%= @item.title %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+<p>Description: <%= @item.description %></p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
