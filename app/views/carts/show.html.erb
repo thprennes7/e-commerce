@@ -1,12 +1,28 @@
 
-<h1>test panier</h1>
+<h1>Panier</h1>
 
-<%= @user.email %>
-<br />
-<% @cart.each do |i|  %>
-	<%= i.item.title %>
-	<br />
-<% end %>
+<% if @cart.any? %>
+	<ul class="list-group list-group-flush">
+		<% @cart_array.each do |item| %>
+		<li class="list-group-item d-flex justify-content-between" id="cart_item<%= item[:id] %>">
 
-<%= link_to "Passer commande", new_charge_path, :class => "btn btn-primary" %>
+			<p><%= item[:title] %> </p>
 
+			<p>Prix : <span  id="cart_item_price<%= item[:id] %>"><%= item[:price] %></span> </p>
+
+			<p>Quantitée : <span  id="cart_item_qty<%= item[:id] %>"><%= item[:qty] %></span> </p>
+
+			<p>Prix total : <span  id="cart_item_total_price<%= item[:id] %>"><%= item[:price] * item[:qty] %></span></p>
+
+			<p><%= link_to "Supprimer", cart_path(item[:id]), method: :delete, class:"cart_item_delete", remote: true, data: {confirm: 'Etes vous sûre ?'} %></p>
+				
+			</li>
+		<% end -%>
+	</ul>
+	<div class="w-100 d-flex justify-content-end m-2">
+		<h6>Prix total : <span  id="cart_total_price"><%= @cart_price %></span></h6>
+	</div>
+	<%= link_to "Passer commande", new_charge_path, :class => "btn btn-primary", style:"margin: 5px;" %>
+<% else %>
+	Votre panier est vide
+<% end -%>
