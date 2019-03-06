@@ -19,3 +19,11 @@ footer {
 	padding: 20px;
 	width: 100%;
 }
+
+#banner_custom {
+	background: url('cat2.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}

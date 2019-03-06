@@ -1,0 +1,12 @@
+Bonjour <%= @admin.first_name %>
+==========================================================
+
+Monsieur, madame <% @user.last_name %> a fait une commande pour les cartes suivante:
+<% @items.each do |item| %>
+<%= item.title %>
+<%= image_tag item.cat_picture, alt: item.title %>
+<% end %>
+
+Pour accéder à ton espace admin, connecte-toi via : <%=@url %> .
+
+À très vite !

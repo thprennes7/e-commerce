@@ -1,12 +1,22 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
+
   def new
+    @items = Cart.where(user_id: current_user.id)
+    @order_price = 0.0
+    @items.each do |item|
+      @order_price += (item.price * item.quantity)
+    end
+    @order_price = @order_price * 100
   end
 
   def create
-    # Amount in cents
-    @item = Item.find(params[:id])
-    @amount = 500
+    @items = Cart.where(user_id: current_user.id)
+    @amount = 0.0
+    @items.each do |item|
+      @amount += (item.price * item.quantity)
+    end
+    @amount = @amount * 100
 
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -19,6 +29,8 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd',
     })
+
+
 
     order_send(@user, @item)
 
