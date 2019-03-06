@@ -1,4 +1,3 @@
-
 	<div class="card">
 			<%if item.cat_picture.attached?%>
 			<%= image_tag item.cat_picture, alt: "#{item.title}", class: "card-img" %>
@@ -9,5 +8,3 @@
 			<%= link_to item.title, item_path(item.id), class: "card-title" %>
 		</div>
 	</div>
-
-

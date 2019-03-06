@@ -1,4 +1,6 @@
+<%= render 'banner' %>
 <div class="card-columns">
+	<!-- A loop that displays the cards in the column. -->
 	<% @items.sort.each do |item| %>
 	<%= render 'card', item: item %>
 	<% end -%>
