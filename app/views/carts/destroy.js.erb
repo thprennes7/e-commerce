@@ -1,7 +1,0 @@
-if ($('#cart_item_qty<%= @item.id %>') == '1') {
-	$('#cart_total_price').html("<%= @cart_price - @item.price %>");
-	$('#cart_item<%= @item.id %>').remove();
-} else {
-	$('#cart_total_price').html("<%= @cart_price - @item.price %>");
-	$('#cart_item_qty<%= @item.id %>').html()
-}

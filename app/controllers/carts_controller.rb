@@ -43,13 +43,10 @@ class CartsController < ApplicationController
   def destroy
   	cart_item = Cart.find_by(user_id: current_user.id, item_id: params[:id])
 
-    @item = cart_item
+    @item = cart_item.item
 
   	if cart_item.destroy
-  		respond_to do |format|
-				format.html { redirect_to cart_path(current_user.id)}
-				format.js
-			end
+  		redirect_to request.referer
 		end
   end
 end
