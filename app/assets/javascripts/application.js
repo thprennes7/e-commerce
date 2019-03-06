@@ -12,9 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 //= require_tree .
 //= require jquery.min.js
