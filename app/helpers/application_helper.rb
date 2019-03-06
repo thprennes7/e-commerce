@@ -9,6 +9,6 @@ module ApplicationHelper
   	current_user == user
   end
   def is_admin?(user)
-    user.admin == true
+    user.admin == true && user_signed_in?
   end
 end

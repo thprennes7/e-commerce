@@ -1,5 +1,6 @@
+<%= render 'banner' %>
 <div class="card-columns">
-	<% @items.sort.each do |item| %>
+	<% @items.sort.reverse.each do |item| %>
 	<%= render 'card', item: item %>
 	<% end -%>
 </div>

@@ -1,17 +1,26 @@
-<div class="w-100 d-flex f-middle">
-<h2>Mot de passe oublier ?</h2>
-</div><br />
+<div class="d-flex justify-content-center flex-column align-items-center">
+  <div class="card text-center" style="max-width: 30rem">
+    <div class="card-header">
+      <h4>Mot de passe oublié ?</h4>
+    </div>
+    <div class="card-body">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-group d-flex flex-column align-items-start">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="form-group">
+        <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      </div>
+
+      <%= f.submit "Réinitialiser mon mot de passe", class:"btn btn-warning btn-block m-2" %>
+
+      <div class="card-footer">
+        <div class="form-group">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-    <%= f.submit "Send me reset password instructions", class:"btn btn-warning " %>
-  
 <% end %>
-
-<%= render "devise/shared/links" %>
