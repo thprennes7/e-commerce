@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <section class="col-8 offset-2 d-flex align-items-center justify-content-between mb-4">
+  <!-- If an image is loaded display the image otherwise display: -->
   <% if @item.cat_picture.attached? %>
 
   <%= image_tag @item.cat_picture, class: "rounded float-left", alt: "cat" %>
