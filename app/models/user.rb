@@ -2,7 +2,6 @@ class User < ApplicationRecord
   after_create :welcome_send
   has_many :orders
   has_many :carts
-  has_many :items, through: :order
 
   # validates
   #ybo : not possible for the moment

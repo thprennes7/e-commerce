@@ -1,10 +1,19 @@
-<div class="w-100 d-flex f-middle">
+<div class="w-100 d-flex justify-content-center">
 	<h2>Profil</h2>
 </div>
 
+<h6>Votre e-mail :</h6>
 <p><%= @user.email %></p>
 
-<div class="w-100 d-flex f-middle">
-	<h2>Vos précédents commandes</h2>
+<div class="w-100 d-flex flex-column align-items-center">
+	<h3>Vos précédents commandes</h3>
+
+	<ul class="list-group list-group-flush">
+		<% @orders.each do |order| %>
+		<li class="list-group-item">Commande du <%= order.created_at %></li>	
+		<% end -%>
+	</ul>
+	
+
 </div>
 
