@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :order_details
   resources :items do
     resources :cat_pictures, only: [:create]
   end
