@@ -1,23 +1,18 @@
 class Order < ApplicationRecord
-  after_create :order_send :send_user_order
+  after_create :admin_order_send
+  after_create :user_order_send
   belongs_to :user
   has_many :items, through: :order_detail
 
 
-private
+  private
 
-  def order_send(user, item)
-    @item = item
-    @user = user
-    if @user.is_admin?
-      UserMailer.order_email.deliver_now
-    end
+  def admin_order_send
+    UserMailer.admin_order_email(self).deliver_now
   end
 
-  def send_user_order(user, item)
-    @item = item
-    @user = user
-    if != @user.is_admin?
-      UserMailer.order_user_email.deliver_now
+  def user_order_send
+    UserMailer.user_order_email(self).deliver_now
   end
+
 end
