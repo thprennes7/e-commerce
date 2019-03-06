@@ -5,6 +5,13 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 		<ul class="navbar-nav mr-auto">
+			<% if user_signed_in? && is_admin?(current_user) %>
+			<li class="nav-item">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
+					Créer un produit
+				</button>
+			</li>
+			<% end %>
 
 			<li class="dropdown nav-item">
 
@@ -22,7 +29,7 @@
 					<%= link_to "Connexion", new_user_session_path, class:"dropdown-item" %>
 
 					<%= link_to "Inscription", new_user_registration_path, class:"dropdown-item" %>
-					
+
 					<% end -%>
 
 				</div>
