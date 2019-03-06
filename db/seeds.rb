@@ -32,5 +32,6 @@ end
 
 50.times do
   item = Item.all.sample
-  OrderDetail.create!(order_id: Order.all.sample.id, item_id: item.id, price: item.price)
+  OrderDetail.create!(order_id: Order.all.sample.id, item_id: item.id, price: item.price, quantity: Faker::Number.between(1, 5))
 end
+
