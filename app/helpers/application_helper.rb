@@ -8,7 +8,7 @@ module ApplicationHelper
   def is_current_user?(user)
   	current_user == user
   end
-  def is_admin?
-    self.admin == true
+  def is_admin?(user)
+    user.admin == true
   end
 end
