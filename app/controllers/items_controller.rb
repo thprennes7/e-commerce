@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /items
   # GET /items.json
@@ -15,11 +16,19 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    unless is_admin?(current_user)
+      redirect_to request.referer
+      flash[:notice] = "Accés interdit"
+    end
     @item = Item.new
   end
 
   # GET /items/1/edit
   def edit
+    unless is_admin?(current_user)
+      redirect_to request.referer
+      flash[:notice] = "Accés interdit"
+    end
   end
 
   # POST /items
@@ -55,6 +64,10 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    unless is_admin?(current_user)
+      redirect_to request.referer
+      flash[:notice] = "Accés interdit"
+    end
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
@@ -63,13 +76,13 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:item_id, :price, :title, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:item_id, :price, :title, :description)
+  end
 end
