@@ -10,6 +10,7 @@ require 'faker'
 Item.destroy_all
 User.destroy_all
 Cart.destroy_all
+OrderDetail.destroy_all
 Order.destroy_all
 
 20.times do
@@ -26,5 +27,10 @@ end
 end
 
 25.times do
-  Order.create!(user_id: User.all.sample.id, item_id: Item.all.sample.id, stripe_customer_id: SecureRandom.base64)
+  Order.create!(user_id: User.all.sample.id, stripe_customer_id: SecureRandom.base64)
+end
+
+50.times do
+  item = Item.all.sample
+  OrderDetail.create!(order_id: Order.all.sample.id, item_id: item.id, price: item.price)
 end
