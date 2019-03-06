@@ -3,17 +3,21 @@
 </div><br />
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+	<div class="form-group d-flex flex-column align-items-start">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-
+  </div>
+  <div class="form-group d-flex flex-column align-items-start">
     <%= f.label "Mot de passe" %>
     <%= f.password_field :password, autocomplete: "current-password" %>
+	</div>
 
   <% if devise_mapping.rememberable? %>
       <%= f.check_box :remember_me %><%= f.label "Se souvenir de moi" %>
   <% end %>
 
-  <%= f.submit "Log in", class:"btn btn-secondary " %>
+  <%= f.submit "Connexion", class:"btn btn-secondary m-2" %>
   
 <% end %>
 
