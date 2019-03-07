@@ -4,23 +4,28 @@
 <% if @cart.any? %>
 	<ul class="list-group list-group-flush">
 		<% @cart_array.each do |item| %>
-		<li class="list-group-item d-flex justify-content-between">
+		<li class="list-group-item d-flex justify-content-between align-items-center">
 
-			<p><%= item[:title] %> </p>
+			<p class="d-flex align-items-center m-0"><%= item[:title] %> </p>
 
-			<p>Prix : <%= item[:price] %></p>
+			<p class="d-flex align-items-center m-0">Prix : <%= item[:price] %></p>
 
-			<p>Quantitée : <%= item[:qty] %></p>
+			<p class="d-flex align-items-center m-0">Quantitée : <%= item[:qty] %></p>
 
-			<p>Prix total : <%= item[:price] * item[:qty] %></p>
+			<p class="d-flex align-items-center m-0">Prix total : <%= item[:price] * item[:qty] %></p>
 
-			<p><%= link_to "Supprimer", cart_path(item[:id]), method: :delete, class:"cart_item_delete", data: {confirm: 'Etes vous sûre ?'} %></p>
+			<%= form_tag(carts_path, method: 'post') do %>
+				<%= hidden_field_tag('item', item[:id]) %>
+				<%= submit_tag('Ajouter un article', class:'btn btn-success') %>
+			<% end -%>
+
+			<p class="d-flex align-items-center m-0"><%= link_to "Supprimer", cart_path(item[:id]), method: :delete, data: {confirm: 'Etes vous sûre ?'} %></p>
 				
 			</li>
 		<% end -%>
 	</ul>
 	<div class="w-100 d-flex justify-content-end m-2">
-		<h6>Prix total : <%= @cart_price %></h6>
+		<h6>Prix total : <%= @cart_price %> €</h6>
 	</div>
 	<%= form_tag orders_path do %>
   	<article>
