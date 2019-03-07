@@ -1,13 +1,18 @@
 Bonjour <%= @user.first_name %>
 ============================================
-Nous vous remercions de votre commande. La commande sera expédié a l'adresse suivante : <%= @user.email %>
+Nous vous remercions de votre commande.
+
 Vous avez commandé les photos de chats suivante:
-<% @items.each do |item| %>
-<%= item.title %>
-<%= image_tag item.cat_picture alt: item.title %>
+<% @items_with_qty.each do |item| %>
+  <%= item[:item].title %>
 <% end %>
+
 Montant de la commande :
-<%= PriceService.new.total_price(items) %>
+<%= @price_total %>
+Vous pouvez retrouver vos images sur votre profil.
+
 Un grand merci pour la confiance que vous nous accordez.
+
 Nous espérons vous revoir bientôt. <%= @url %>
+
 Veuillez noter que ce message vous a été envoyé d'une adresse qui ne peut recevoir d'e-mails. Merci de ne pas y répondre.
