@@ -22,7 +22,7 @@ module ApplicationHelper
 		items.each do |item|
 			i += item.item.price
 		end
-		(i * 100).to_i
+		i
 	end
 
 	def items_array(items)
