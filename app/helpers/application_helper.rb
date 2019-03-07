@@ -51,4 +51,13 @@ module ApplicationHelper
     end
     cart_array
 	end
+
+	def class_for_flash(type)
+  	case type
+    	when 'notice' then "info"
+    	when 'success' then "success"
+    	when 'danger' then "danger"
+    	when 'warning' then "warning"
+  	end
+	end
 end
