@@ -22,5 +22,4 @@ module ApplicationHelper
 		end
 		i * 100
 	end
-
 end

@@ -15,6 +15,10 @@
     <p><%= @item.description %></p>
     <p><%= @item.price %>€</p>
     <p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
-    <button type="button" class="btn btn-outline-dark">Ajouter à mon panier</button>
+
+    <%= form_tag(carts_path, method: 'post') do %>
+    <%= hidden_field_tag('item', @item.id) %>
+    <%= submit_tag('Ajouter au panier') %>
+    <% end -%>
   </article>
 </section>
