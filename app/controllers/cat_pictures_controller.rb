@@ -1,5 +1,5 @@
 class CatPicturesController < ApplicationController
-
+#method to control the creation and recording in multiple formats of cat.
   def create
     @item = Item.find(params[:item_id])
     puts cat_params
