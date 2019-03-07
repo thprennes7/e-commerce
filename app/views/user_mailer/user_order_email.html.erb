@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
   <h1>Bonjour <%= @user.first_name %> !</h1>
 
-  <p>Nous vous remercions pour votre commande.></p>
+  <p>Nous vous remercions pour votre commande.</p>
 
   <p>Vous avez commandé les photos de chats suivante: </p>
 
   <% @items_with_qty.each do |item| %>
-    <p><%= item[:item].title %></p>
+    <p><%= item[:title] %></p>
   <% end %>
 
   <p>Montant de la commande :</p>
@@ -27,5 +21,3 @@
   <br>
 
   <p>Veuillez noter que ce message vous a été envoyé d'une adresse qui ne peut recevoir d'e-mails. Merci de ne pas y répondre.</p>
-  </body>
-  </html>

@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
+
     <h1>Bonjour <%= @admin.first_name %></h1>
 
     <p><%= @user.email %> a fait une commande pour les cartes suivante:</p>
 
     <% @items_with_qty.each do |item| %>
-      <p><%= item[:item].title %> <%= item[:qty] %></p>
+      <p><%= item[:title] %> <%= item[:qty] %></p>
     <% end %>
 
     <p>Pour accéder à votre espace admin, connectez vous via : <%=@url %>.
     </p>
     <p> À très vite !
   </body>
-</html>
+
