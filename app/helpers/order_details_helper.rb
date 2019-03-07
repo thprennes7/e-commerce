@@ -1,5 +1,5 @@
 module OrderDetailsHelper
   def find_details(order)
-    OrderDetail.where(order_id: order.id)
+    return a = OrderDetail.where(order_id: order.id)
   end
 end
