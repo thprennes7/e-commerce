@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :welcome_send
   has_many :orders
   has_many :carts
 
@@ -16,5 +17,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+
+private
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 
 end

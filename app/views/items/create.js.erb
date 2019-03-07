@@ -1,0 +1,5 @@
+console.log("WOOOOOOORRRKKKIIIIIIINNNGGGG");
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+$('#newItemModal').remove();
+$($('.card-columns')[0]).prepend("<%= j render 'card', item: Item.last %>");

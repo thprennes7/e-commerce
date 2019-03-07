@@ -34,10 +34,13 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    puts '=' * 30
+    puts item_params
+    puts '=' * 30
     @item = Item.new(item_params)
-
     respond_to do |format|
       if @item.save
+        format.js
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
@@ -70,6 +73,7 @@ class ItemsController < ApplicationController
     end
     @item.destroy
     respond_to do |format|
+      format.js
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -83,6 +87,6 @@ class ItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-    params.require(:item).permit(:item_id, :price, :title, :description)
+    params.require(:item).permit(:price, :title, :description, :cat_picture)
   end
 end
