@@ -6,10 +6,8 @@
 	<% end %>
 	<div class="card-body">
 		<%= link_to item.title, item_path(item.id), class: "card-title" %>
-		<% if user_signed_in? %>
 		<% if is_admin?(current_user) %>
 		<%= link_to "Supprimer", item_path(item.id), method: :delete, remote: true, class: "btn btn-danger" %>
 		<% end %>
-		<% end -%>
 	</div>
 </div>

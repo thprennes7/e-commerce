@@ -7,7 +7,6 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 		<ul class="navbar-nav mr-auto">
-			<% if user_signed_in? %>
 			<% if is_admin?(current_user) %>
 			<li class="nav-item">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
@@ -15,7 +14,6 @@
 				</button>
 			</li>
 			<% end %>
-			<% end -%>
 
 			<li class="dropdown nav-item">
 
