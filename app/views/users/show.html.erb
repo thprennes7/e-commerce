@@ -11,7 +11,7 @@
 
 	<ul class="list-group list-group-flush">
 		<% @orders.each do |order| %>
-		<li class="list-group-item">Commande du <%= order.created_at %></li>
+		<li class="list-group-item"><%= link_to "Commande du #{order.created_at}", order_path(order.id) %></li>
 		<% end -%>
 	</ul>
 
