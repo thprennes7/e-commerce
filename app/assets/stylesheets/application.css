@@ -2,6 +2,7 @@
 
 *= require_tree .
 *= require_self
+ *= require font-awesome
 
 */
 
@@ -22,7 +23,28 @@ main {
 	max-width: 1200px;
 	flex: 1;
 }
+
 footer {
-	padding: 20px;
 	width: 100%;
+}
+
+.footer-content {
+  background-color: #18BC9C;
+  color: white;
+}
+
+.content-2 {
+	text-align: justify;
+	border-left: 1px solid white;
+}
+
+.content-3 {
+	border-left: 1px solid white;
+}
+
+
+
+.footer-copyright {
+  background-color: #16A085;
+  color: white;
 }

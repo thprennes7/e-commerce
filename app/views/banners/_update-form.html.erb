@@ -1,12 +1,16 @@
 <li class="list-group-item d-flex justify-content-between" id="update-form<%= banner.id %>">
-  <%= form_tag banner_banner_images_path(banner), method: :post, multipart: true, remote: true  do%>
-  <div class="form-group">
-    <%= label_tag :banner_image %>
+
+  <%= form_tag banner_banner_images_path(banner), method: :post, multipart: true, remote: true, class:'d-flex flex-column'  do%>
+
     <%= image_tag banner.banner_image.variant(resize: "100x100"), id: "image_banner#{banner.id}" if banner.banner_image.attached? %>
+
     <%= file_field_tag :banner_image %>
+
     <%= submit_tag "Uploader" %>
-  </div>
+
   <% end %>
+
+
   <%= form_for banner_path(banner.id), method: :patch, remote: true, multipart: true do |form| %>
   <p><%= banner.id %></p>
 

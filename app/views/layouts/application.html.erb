@@ -8,15 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
   </head>
 
   <body>
-    <% if is_admin?(current_user) %>
-    <%= render 'layouts/banner-index-modal'  %>
-    <%= render 'layouts/new-item-modal'  %>
-    <% end %>
     <div id="wrapper">
       <header>
         <%= render '/layouts/nav' %>
@@ -24,8 +20,8 @@
       <main class="p-1">
         <% flash.each do |type, value| %>
 
-          <div class="alert alert-<%= class_for_flash(type) %> alert-dismissible fade show" role="alert">
-            <p><%= value %></p>
+          <div class="alert alert-<%= class_for_flash(type) %> alert-dismissible fade show p-1" role="alert">
+            <h5><%= value %></h5>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -34,7 +30,7 @@
         
         <%= yield %>
       </main>
-      <footer class="d-flex justify-content-center">
+      <footer>
         <%= render '/layouts/footer' %>
       </footer>
     </div>
