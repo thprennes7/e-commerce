@@ -19,21 +19,21 @@ ___
 
 Ce projet a été réalisée par l’équipe THP de Rennes :  
 
-..* Guillaume Zaugg 
+* Guillaume Zaugg 
 
-..* Florian Even 
+* Florian Even 
 
-..* Salomé Marzin 
+* Salomé Marzin 
 
-..* Aurélien Duquenne 
+* Aurélien Duquenne 
 
-..* Samir Kettani 
+* Samir Kettani 
 
-..* Yann Bonnard 
+* Yann Bonnard 
 
 ___ 
 
-##Production : 
+## Production : 
 
 Le lien pour trouver le l’app en production. 
 
