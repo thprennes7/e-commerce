@@ -1,6 +1,9 @@
-<h1>Vos commande(s)</h1>
-<% @items.each do |item| %>
-<%= item.title %>
-<%= item.cat_picture %>
-<%= item.user_id%>
-<% end %>
+<h2>Commande du <%= @order.created_at %></h2>
+
+<ul class="list-group list-group-flush">
+	<% @items.each do |item| %>
+	<li class="list-group-item d-flex justify-content-between">
+		<%= link_to item.item.title, item_path(item.item_id) %> <%= item.price %>
+	</li>
+	<% end -%>
+</ul>

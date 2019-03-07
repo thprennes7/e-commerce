@@ -12,14 +12,43 @@ module ApplicationHelper
 	end
 
 	def is_admin?(user)
-		user.admin == true
+		if user_signed_in?
+			user.admin == true
+		end
 	end
 
 	def total_price(items)
 		i = 0.0
 		items.each do |item|
-			i += item.price * item.quantity
+			i += item.item.price
 		end
-		i * 100
+		i
+	end
+
+	def items_array(items)
+		cart_array = Array.new
+		items.each do |cart_item|
+      id = cart_item.item.id
+      
+      if cart_array.any?
+        # some condition and iterations to check if we have already the item in ur array to have quantity, x is an iterrator, and y will refer to the index
+        x = 0
+        y = 0
+        cart_array.each_with_index do |item, index|
+          if item[:id] == id
+            x = 1
+            y = index
+          end
+        end
+        if x == 1
+          cart_array[y][:qty] += 1
+        else
+          cart_array << {id: id, title: cart_item.item.title, price: cart_item.item.price, qty: 1}  
+        end
+      else
+        cart_array << {id: id, title: cart_item.item.title, price: cart_item.item.price, qty: 1}
+      end
+    end
+    cart_array
 	end
 end

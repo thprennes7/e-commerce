@@ -14,7 +14,9 @@
     <h2 class="text-primary"><%= @item.title %></h2>
     <p><%= @item.description %></p>
     <p><%= @item.price %>€</p>
-    <p><%= link_to 'Edit', edit_item_path(@item) %> | <%= link_to 'Back', items_path %></p>
+    <% if is_admin?(current_user) %>
+    <p><%= link_to 'Edit', edit_item_path(@item) %></p>
+    <% end -%>
 
     <%= form_tag(carts_path, method: 'post') do %>
     <%= hidden_field_tag('item', @item.id) %>
