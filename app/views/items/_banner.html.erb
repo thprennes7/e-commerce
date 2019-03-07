@@ -1,4 +1,8 @@
-<div class="jumbotron d-flex justify-content-center flex-column align-items-center" id="banner_custom">
-  <h1 class="display-2">Bonjour</h1>
-  <p class="lead">Mdr</p>
+<div class="carousel slide" data-ride="carousel">
+  <% banners.sort.reverse.each do |banner| %>
+  <div class="jumbotron d-flex justify-content-center flex-column align-items-center banner_custom" id="banner<%= banner.id %>" style="background: url(<%= polymorphic_url(banner.banner_image) if banner.banner_image.attached? %>);">
+    <h1 class="display-2 text-white"><%= banner.title %></h1>
+    <p class="lead text-white"><%= banner.description %></p>
+  </div>
+  <% end %>
 </div>
