@@ -13,10 +13,6 @@
   </head>
 
   <body>
-    <% if is_admin?(current_user) %>
-    <%= render 'layouts/banner-index-modal'  %>
-    <%= render 'layouts/new-item-modal'  %>
-    <% end %>
     <div id="wrapper">
       <header>
         <%= render '/layouts/nav' %>
