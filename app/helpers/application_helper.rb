@@ -12,7 +12,9 @@ module ApplicationHelper
 	end
 
 	def is_admin?(user)
-		user.admin == true
+		if user_signed_in?
+			user.admin == true
+		end
 	end
 
 	def total_price(items)
