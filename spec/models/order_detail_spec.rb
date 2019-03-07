@@ -14,5 +14,9 @@ RSpec.describe OrderDetail, type: :model do
       expect(@order_detail).to be_valid
     end
   end
+  context "associations" do
+    it { should belong_to (:item) }
+    it { should belong_to (:order) }    
+  end
 
 end
