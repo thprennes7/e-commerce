@@ -7,9 +7,13 @@ RSpec.describe CartsController, type: :controller do
   @cart  = FactoryBot.create(:cart)
   end
   describe "GET show" do
-    it "expect catrs" do
+    it "expect carts" do
       get :show, params: {id: @cart}
         expect(@cart).to eq(@cart)
+    end
+    it "respond_to carts" do
+      get :show, params: {id: @cart}
+        expect(assigns(@cart)).respond_to?(:carts)
     end
   end
 end
