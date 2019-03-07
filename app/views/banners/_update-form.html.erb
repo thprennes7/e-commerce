@@ -1,4 +1,4 @@
-<li class="list-group-item d-flex justify-content-between">
+<li class="list-group-item d-flex justify-content-between" id="update-form<%= banner.id %>">
   <%= form_tag banner_banner_images_path(banner), method: :post, multipart: true, remote: true  do%>
   <div class="form-group">
     <%= label_tag :banner_image %>
