@@ -24,8 +24,8 @@
       <main class="p-1">
         <% flash.each do |type, value| %>
 
-          <div class="alert alert-<%= class_for_flash(type) %> alert-dismissible fade show" role="alert">
-            <p><%= value %></p>
+          <div class="alert alert-<%= class_for_flash(type) %> alert-dismissible fade show p-1" role="alert">
+            <h5><%= value %></h5>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
