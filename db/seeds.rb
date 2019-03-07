@@ -18,7 +18,7 @@ Order.destroy_all
 end
 
 15.times do |i|
-  User.create!(email: "thprennes#{i}@yopmail.com", password: Faker::Lorem.paragraph)
+  User.create!(email: "thprennes#{i}@yopmail.com", password: Faker::Lorem.paragraph, admin: 0)
   i += 1
 end
 

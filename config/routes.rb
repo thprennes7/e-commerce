@@ -1,5 +1,6 @@
 #Creating routes with resource
 Rails.application.routes.draw do
+  resources :banners
   resources :order_details
   resources :carts
   resources :items do
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :users
+  resources :orders, only: [:create, :show]
   #Main route, it displays the home page with the items.
   root to: 'items#index'
   resources :charges
