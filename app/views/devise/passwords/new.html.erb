@@ -12,12 +12,14 @@
         <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "Email" %>
       </div>
 
-      <%= f.submit "Réinitialiser mon mot de passe", class:"btn btn-warning btn-block m-2" %>
+      <div class="form-group">
+        <%= f.submit "Réinitialiser mon mot de passe", class:"btn btn-warning btn-block" %>
+      </div>
+    </div>
 
-      <div class="card-footer">
-        <div class="form-group">
-          <%= render "devise/shared/links" %>
-        </div>
+    <div class="card-footer">
+      <div class="form-group">
+        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
