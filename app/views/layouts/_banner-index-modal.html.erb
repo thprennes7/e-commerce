@@ -1,0 +1,49 @@
+<div class="modal fade" id="bannerIndexModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Index des bannières</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <ul class="list-group list-group-flush">
+          <% @banners.each do |banner|%>
+          <li class="list-group-item d-flex justify-content-between">
+            <%= form_tag banner_banner_images_path(banner), method: :post, multipart: true, remote: true  do%>
+            <div class="form-group">
+              <%= label_tag :banner_image %>
+              <%= image_tag banner.banner_image.variant(resize_to_fit: [100, 100]) if banner.banner_image.attached? %>
+              <%= file_field_tag :banner_image %>
+              <%= submit_tag "Uploader" %>
+            </div>
+            <% end %>
+            <%= form_for banner_path(banner.id),method: :patch, remote: true, multipart: true do |form| %>
+            <p><%= banner.id %></p>
+
+            <div class="form-group">
+              <%= form.label :title %>
+              <%= form.text_field :title, value: banner.title  %>
+            </div>
+            <div class="form-group">
+              <%= form.label :description %>
+              <%= form.text_field :description, value: banner.description %>
+            </div>
+
+
+            <%= form.submit "Mettre à jour", class: "btn btn-outline-success" %>
+            <%= link_to "Supprimer", banner_path(banner), method: :destroy, remote: true, class: "text-danger" %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
