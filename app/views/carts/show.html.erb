@@ -33,8 +33,8 @@
 
   	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Checkout the cart"
-          data-amount="<%= @cart_price %> * 100"
+          data-description="Payement"
+          data-amount="<%= @cart_price * 100 %>"
           data-locale="auto"></script>
     <script>
         document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';</script>
