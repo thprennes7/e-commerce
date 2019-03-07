@@ -23,7 +23,8 @@ class BannersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @banner.update(banner_params)
+      if @banner.update(title: params[:title], description: params[:description])
+        format.js
         format.html { redirect_to @banner, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @banner }
       else
