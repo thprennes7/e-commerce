@@ -44,6 +44,15 @@ footer {
 
 .content-2 {
 	top: 10px;
+	left: 30px;
+	text-align: justify;
+	border-left: 1px solid white;
+}
+
+.content-3 {
+	top: 10px;
+	right: 30px;
+	border-left: 1px solid white;
 }
 
 .join-us {
