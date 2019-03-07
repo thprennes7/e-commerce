@@ -1,8 +1,40 @@
-<div class="carousel slide" data-ride="carousel">
-  <% banners.sort.reverse.each do |banner| %>
-  <div class="jumbotron d-flex justify-content-center flex-column align-items-center banner_custom" id="banner<%= banner.id %>" style="background: url(<%= polymorphic_url(banner.banner_image) if banner.banner_image.attached? %>);">
-    <h1 class="display-2 text-white"><%= banner.title %></h1>
-    <p class="lead text-white"><%= banner.description %></p>
-  </div>
-  <% end %>
+<div class="bd-exemple">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<% 
+		x = 0
+		banners.sort.reverse.each do |banner|
+			%>
+			<li data-target="#carouselExampleIndicators" data-slide-to="<%= x %>" <% if x == 0 %>class="active" <% end -%> ></li>
+		<% x += 1 %>
+		<% end -%>
+	</ol>
+
+	<div class="carousel-inner">
+	 <%
+	 x = 0
+	 banners.sort.reverse.each do |banner| 
+	 %>	
+		<div class="carousel-item <% if x == 0 %> active <% end -%>" id="banner<%= banner.id %>">
+
+			<img src="<%= polymorphic_url(banner.banner_image) if banner.banner_image.attached? %>" width="100%">
+
+			<div class="carousel-caption d-none d-md-block">
+				<h5><%= banner.title %></h5>
+
+    		<p><%= banner.description %></p>
+  	</div>
+
+  	<% x += 1 %>
+  	<% end -%>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 </div>
