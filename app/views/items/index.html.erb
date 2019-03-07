@@ -1,4 +1,4 @@
-<%= render 'banner' %>
+<%= render 'items/banner', banners: @banners %>
 <div class="card-columns">
 	<% @items.sort.reverse.each do |item| %>
 	<%= render 'card', item: item %>

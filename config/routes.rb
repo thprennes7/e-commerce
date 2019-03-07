@@ -1,6 +1,8 @@
 #Creating routes with resource
 Rails.application.routes.draw do
-  resources :banners
+  resources :banners do
+    resources :banner_images
+  end
   resources :order_details
   resources :carts
   resources :items do
