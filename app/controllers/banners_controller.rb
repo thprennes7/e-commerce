@@ -8,7 +8,7 @@ class BannersController < ApplicationController
   end
 
   def create
-    @banner = Banner.new(item_params)
+    @banner = Banner.new(banner_params)
     respond_to do |format|
       if @banner.save
         format.js
