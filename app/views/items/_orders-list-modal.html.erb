@@ -9,39 +9,58 @@
       </div>
 
       <div class="modal-body">
-      <% @orders.each do |order| %>
-      <ul class="list-group list-group-flush">
-        <li class="list-item">Id</li>
-        <li class="list-item">Utilisateur</li>
-        <li class="list-item">Prix total</li>
-        <li class="list-item">Date d'achat</li>
-      </ul>
-      <ul class="list-group list-group-flush">
-        <li class="list-item"><%= order.id %></li>
-        <li class="list-item"><%= order.user.email %></li>
-        <li class="list-item"><%= total_price(find_details(order)) %></li>
-        <li class="list-item"><%= tidy_date(order.created_at) %></li>
-      </ul>
-      <ul class="list-group list-group-flush">
-        <li class="list-item">Quantité</li>
-        <li class="list-item">Nom du produit</li>
-        <li class="list-item">Prix </li>
-        <li class="list-item">Prix actuel</li>
-      </ul>
-      <% find_details(order).each do |detail| %>
-      <ul class="list-group list-group-flush">
-        <li class="list-item"><%= detail.quantity %></li>
-        <li class="list-item"><%= detail.item.title %></li>
-        <li class="list-item"><%= detail.price %> €</li>
-        <li class="list-item"><%= detail.item.price %> €</li>
-      </ul>
-      <% end %>
-      <% end %>
-    </div>
+        <table class="table">
+          <% @orders.each do |order| %>
+          <thead>
 
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <tr class="bg-primary text-white">
+              <td class="">Commande :</td>
+              <th scope="row">Id</th>
+              <td class="font-weight-bold">Utilisateur</td>
+              <td class="font-weight-bold">Prix total</td>
+              <td class="font-weight-bold">Date d'achat</td>
+            </tr>
+            <thead>
+
+              <tbody>
+                <tr class="bg-light">
+
+                  <th scope="row"></th>
+                  <td><%= order.id %></td>
+                  <td><%= order.user.email %></td>
+                  <td><%= total_price(find_details(order)) %></td>
+                  <td><%= tidy_date(order.created_at) %></td>
+
+                </tr>
+                <tr class="bg-light">
+
+                  <th scope="row" class="">Détail :</th>
+                  <td class="font-weight-bold">Quantité</td>
+                  <td class="font-weight-bold">Nom du produit</td>
+                  <td class="font-weight-bold">Prix </td>
+                  <td class="font-weight-bold">Prix actuel</td>
+
+                </tr>
+                <% find_details(order).each do |detail| %>
+                <tr class="bg-light">
+
+                  <th scope="row"></th>
+                  <td><%= detail.quantity %></td>
+                  <td><%= detail.item.title %></td>
+                  <td><%= detail.price %> €</td>
+                  <td><%= detail.item.price %> €</td>
+
+                </tr>
+                <% end %>
+                <% end %>
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
