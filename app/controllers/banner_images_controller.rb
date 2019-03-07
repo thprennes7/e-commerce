@@ -1,4 +1,5 @@
 class BannerImagesController < ApplicationController
+  #method to control the image of the banner
   def create
     @banner = Banner.find(params[:banner_id])
     @banner.banner_image.attach(banner_img_params[:banner_image])
