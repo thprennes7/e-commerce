@@ -1,0 +1,12 @@
+$banner = $('#banner<%= @banner.id %>');
+$updateForm = $('#update-form<%= @banner.id %>')
+console.log($banner);
+console.log($updateForm);
+$banner.slideUp(800);
+$updateForm.slideUp(800);
+setTimeout(function(){
+  $banner.remove()
+}, 800);
+setTimeout(function(){
+  $updateForm.remove()
+}, 800);
