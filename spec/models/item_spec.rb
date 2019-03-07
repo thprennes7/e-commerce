@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
 
   before(:all) do
-  @item  = FactoryBot.create(:item)
+    @user          = FactoryBot.create(:user)
+    @cart          = FactoryBot.create(:cart)
+    @item          = FactoryBot.create(:item)
+    @order         = FactoryBot.create(:order)
+    @order_detail  = FactoryBot.create(:order_detail)
   end
 
   context "validation" do
@@ -13,4 +17,9 @@ RSpec.describe Item, type: :model do
     end
   end
 
+  context "associations" do
+#   it { should have_many(:orders).through(:order_detail) }         ybo: not association ??
+    it { should have_many(:carts) }
+    it { should have_many(:order_details) }
+  end
 end
