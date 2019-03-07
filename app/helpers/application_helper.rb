@@ -20,8 +20,8 @@ module ApplicationHelper
 	def total_price(items)
 		i = 0.0
 		items.each do |item|
-			i += item.price * item.quantity
+			i += item.item.price
 		end
-		i * 100
+		(i * 100).to_i
 	end
 end
