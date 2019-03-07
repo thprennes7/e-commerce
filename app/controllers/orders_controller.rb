@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def create
 		@items = Cart.where(user_id: current_user.id)
-    @amount = total_price(@items)
+    @amount = (total_price(@items) * 100).to_i
 
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -21,30 +21,7 @@ class OrdersController < ApplicationController
     if order.save
     	redirect_to cart_path(current_user.id)
 
-    	@cart_array = Array.new
-
-    	@items.each do |item|
-    		id = item.item.id
-      
-      	if @cart_array.any?
-      	  # some condition and iterations to check if we have already the item in ur array to have quantity, x is an iterrator, and y will refer to the index
-        	x = 0
-        	y = 0
-        	@cart_array.each_with_index do |item, index|
-          	if item[:id] == id
-            	x = 1
-            	y = index
-          	end
-        	end
-        	if x == 1
-          	@cart_array[y][:qty] += 1
-        	else
-          	@cart_array << {id: id, title: item.item.title, price: item.item.price, qty: 1}  
-        	end
-      	else
-        	@cart_array << {id: id, title: item.item.title, price: item.item.price, qty: 1}
-     		end
-    	end
+    	@cart_array = items_array(@items)
 
     	@cart_array.each do |item|
     		OrderDetail.create!(order_id: order.id, item_id: item[:id], price: item[:price], quantity: item[:qty])
@@ -58,5 +35,11 @@ class OrdersController < ApplicationController
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to cart_path(current_user.id)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+
+    @items = OrderDetail.where(order_id: @order.id)
   end
 end

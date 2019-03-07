@@ -5,14 +5,14 @@
   </head>
   <body>
     <h1>Bonjour <%= @admin.first_name %></h1>
-    <p>
-      Monsieur, madame <%= @user.last_name %> a fait une commande pour les cartes suivante:</p>
-        <% @items.each do |item| %>
-    <p><%= item.title %></p>
-    <%= image_tag item.cat_picture, alt: item.title %>
-        <% end %>
-    <p>
-      Pour accéder à ton espace admin, connecte-toi via : <%=@url %>.
+
+    <p><%= @user.email %> a fait une commande pour les cartes suivante:</p>
+
+    <% @items_with_qty.each do |item| %>
+      <p><%= item[:item].title %> <%= item[:qty] %></p>
+    <% end %>
+
+    <p>Pour accéder à votre espace admin, connectez vous via : <%=@url %>.
     </p>
     <p> À très vite !
   </body>
