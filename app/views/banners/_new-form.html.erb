@@ -1,0 +1,4 @@
+<div class="jumbotron d-flex justify-content-center flex-column align-items-center" id="banner_custom banner<%= banner.id %>" style="background: url(<%= polymorphic_url(banner.banner_image) if banner.banner_image.attached? %>);">
+  <h1 class="display-2 text-white"><%= banner.title %></h1>
+  <p class="lead text-white"><%= banner.description %></p>
+</div>
