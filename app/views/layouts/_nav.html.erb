@@ -4,21 +4,24 @@
 	<% else %>
 	<%= link_to "CatShop", root_path, class:"navbar-brand" %>
 	<% end %>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<div class="navbar-expand" id="navbarNavDropdown">
 
 		<ul class="navbar-nav mr-auto">
 			<% if is_admin?(current_user) %>
 
-			<li class="nav-item">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
-					Créer un produit
-				</button>
-			</li>
+			<li class="nav-item dropdown">
 
-			<li class="nav-item">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bannerIndexModal">
+				<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Espace admin</a>
+
+				<div class="dropdown-menu">
+					<button type="button" class="dropdown-item" data-toggle="modal" data-target="#newItemModal">
+					Créer un produit
+					</button>
+
+					<button type="button" class="dropdown-item" data-toggle="modal" data-target="#bannerIndexModal">
 					Gestion des bannières
-				</button>
+					</button>
+				</div>
 			</li>
 			<% end %>
 
