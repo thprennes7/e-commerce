@@ -59,4 +59,10 @@ class OrdersController < ApplicationController
     flash[:error] = e.message
     redirect_to cart_path(current_user.id)
   end
+
+  def show
+    @order = Order.find(params[:id])
+
+    @items = OrderDetail.where(order_id: @order.id)
+  end
 end
