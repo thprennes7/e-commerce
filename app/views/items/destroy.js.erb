@@ -1,2 +1,5 @@
 console.log('YEAH');
-$('#<%= @item.id %>').slideUp();
+$('#<%= @item.id %>').fadeOut(500);
+setTimeout(function(){
+    $('#<%= @item.id %>').remove();
+}, 500);
