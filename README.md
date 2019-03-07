@@ -1,12 +1,12 @@
-#E-commerce 
+# E-commerce 
 ___ 
 
-##Description : 
+## Description : 
 
 Ceci est une plateforme E-commerce qui propose la vente de photos de chat. Les photos sont proposées par les administrateurs du site. Et peuvent être achetées par des utilisateurs quand ces derniers sont inscrits et connectés. 
 ___
  
-##Technique : 
+## Technique : 
 
 Cette application est en rails 5.2.1  
 La base de données est en PostgreSQL  
@@ -15,21 +15,21 @@ Les animations sont gérées en JavaScript
 De plus de nombreuses parties du code sont gérées par des gems ou des apis (Devise, Strippe, Sendgrid ..) 
 ___
 
-##Réalisation : 
+## Réalisation : 
 
 Ce projet a été réalisée par l’équipe THP de Rennes :  
 
-..*Guillaume Zaugg 
+..* Guillaume Zaugg 
 
-..*Florian Even 
+..* Florian Even 
 
-..*Salomé Marzin 
+..* Salomé Marzin 
 
-..*Aurélien Duquenne 
+..* Aurélien Duquenne 
 
-..*Samir Kettani 
+..* Samir Kettani 
 
-..*Yann Bonnard 
+..* Yann Bonnard 
 
 ___ 
 
