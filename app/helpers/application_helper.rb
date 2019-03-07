@@ -57,7 +57,7 @@ module ApplicationHelper
     	when 'notice' then "info"
     	when 'success' then "success"
     	when 'danger' then "danger"
-    	when 'warning' then "warning"
+    	when 'alert' then "warning"
   	end
 	end
 end
