@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def create
 		@items = Cart.where(user_id: current_user.id)
-    @amount = total_price(@items)
+    @amount = (total_price(@items) * 100).to_i
 
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
