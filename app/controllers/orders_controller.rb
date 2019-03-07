@@ -31,6 +31,8 @@ class OrdersController < ApplicationController
     		item.destroy
     	end
 
+      flash[:success] = "Votre achat a été validé, vous avez reçus un mail le récapitulant."
+
     end
   rescue Stripe::CardError => e
     flash[:error] = e.message
