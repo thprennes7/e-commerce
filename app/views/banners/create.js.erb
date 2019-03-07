@@ -1,4 +1,4 @@
 $carousel = $('.carousel');
 $modalBannerList = $('.list-group-flush')
-$carousel.hide().prepend("<%= j render 'new-form', banner: @banner %>").slideDown(800);
+$carousel.hide().prepend("<%= j render 'banner', banner: @banner %>").slideDown(800);
 $modalBannerList.hide().prepend("<%= j render 'update-form', banner: @banner %>").slideDown(800);
