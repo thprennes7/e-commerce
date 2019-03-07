@@ -1,6 +1,7 @@
 <% if is_admin?(current_user) %>
 <%= render 'banner-index-modal'  %>
 <%= render 'new-item-modal'  %>
+<%= render 'orders-list-modal'  %>
 <% end %>
 <%= render 'items/banner', banners: @banners %>
 <div class="card-columns">
