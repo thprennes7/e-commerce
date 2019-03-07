@@ -12,7 +12,6 @@ class CartsController < ApplicationController
 
   def show
   	@cart = Cart.where(user_id: current_user.id)
-    @cart_hash = Hash.new
     @cart_array = Array.new
   	@cart_price = 0
   	@cart.each do |cart_item|
