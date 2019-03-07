@@ -10,6 +10,7 @@ class UserMailer < ApplicationMailer
   def admin_order_email(order)
     @url  = 'https://prod-ecommerce-thprennes.herokuapp.com'
     @items = OrderDetail.where(order_id: order.id)
+    @items_with_qty = items_array(@items)
     @user = User.find(order.user.id)
     @admins = User.where(admin: true)
     @admins.each do |admin|
@@ -21,6 +22,7 @@ class UserMailer < ApplicationMailer
   def user_order_email(order)
     @url  = 'https://prod-ecommerce-thprennes.herokuapp.com'
     @items = OrderDetail.where(order_id: order.id)
+    @items_with_qty = items_array(@items)
     @price_total = total_price(@items)
     @user = User.find(order.user.id)
     mail(to: @user.email, subject: 'Votre commande e-commerce')
