@@ -2,6 +2,7 @@
 
 *= require_tree .
 *= require_self
+ *= require font-awesome
 
 */
 html {
@@ -31,9 +32,8 @@ footer {
 }
 
 .footer-content {
-  background-color: #EDEDED;
-  color: #C4C4C4;
-	border: 1px solid #C4C4C4;
+  background-color: #18BC9C;
+  color: white;
 }
 
 .content-1 {
@@ -44,7 +44,6 @@ footer {
 
 .content-2 {
 	top: 10px;
-	right: 20px;
 }
 
 .join-us {
@@ -52,7 +51,7 @@ footer {
 }
 
 .footer-copyright {
-  background-color: #D1D1D1;
-  color: #C4C4C4;
+  background-color: #16A085;
+  color: white;
   text-align: center;
 }
