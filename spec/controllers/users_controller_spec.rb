@@ -3,12 +3,16 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   before(:all) do
     @user = FactoryBot.create(:user)
-  describe "GET index" do
-    it "assigns @users" do
-      get :index
-      expect(assigns(:users)).to eq(user)
+  end
+  describe "GET show" do
+    it "renders the show template" do
+      get :show, id: @user.id
+       expect(assigns(:user)).to eq(@user.id)
     end
 
-    it "renders the index template" do
-      get :index
+    it "return http sucess" do
+      get :show
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
