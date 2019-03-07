@@ -2,17 +2,15 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   before(:all) do
+    let(:user){
     @user = FactoryBot.create(:user)
+  }
   end
-  describe "GET show" do
-    it "renders the show template" do
-      get :show, id: @user.id
-       expect(assigns(:user)).to eq(@user.id)
+    describe "GET index" do
+      it "expect users" do
+      expect(@user).to eq(@user)
+      expect(@user.email).to eq(@user.email)
+      expect(@user.last_name).to eq(@user.last_name)
+      end
     end
-
-    it "return http sucess" do
-      get :show
-      expect(response).to have_http_status(:success)
-    end
-  end
 end
