@@ -1,3 +1,7 @@
+<% if is_admin?(current_user) %>
+<%= render 'banner-index-modal'  %>
+<%= render 'new-item-modal'  %>
+<% end %>
 <%= render 'items/banner', banners: @banners %>
 <div class="card-columns">
 	<% @items.sort.reverse.each do |item| %>
