@@ -3,7 +3,7 @@ Bonjour <%= @admin.first_name %>
 
 <% @user.email %> a fait une commande pour les cartes suivante:
 <% @items_with_qty.each do |item| %>
-  <%= item[:item].title %> <%= item[:qty] %>
+  <%= item[:title] %> <%= item[:qty] %>
 <% end %>
 
 Pour accéder à votre espace admin, connectez vous via : <%=@url %> .
