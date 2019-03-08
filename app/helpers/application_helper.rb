@@ -4,16 +4,16 @@ module ApplicationHelper
 		OrderDetail.where(order_id: order.id)
 	end
 
-	# def already_ordered(item_to_del)
-	# 	Order.all.each do |order|
-	# 		order.items.each do |item|
-	# 			if item == item_to_del
-	# 				return true
-	# 				break
-	# 			end
-	# 		end
-	# 	end
-	# end
+	def already_ordered(item_to_del)
+		Order.all.each do |order|
+			order.items.each do |item|
+				if item == item_to_del
+					return true
+				end
+			end
+		end
+		return false
+	end
 
 	def find_banner_index(banners)
 		Banner.all.sorted.reverse.find_index(banners)
@@ -39,7 +39,9 @@ module ApplicationHelper
 	def total_price(items)
 		i = 0.0
 		items.each do |item|
-			i += item.item.price
+			unless item.present?
+				i += item.item.price
+			end
 		end
 		i
 	end
