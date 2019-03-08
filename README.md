@@ -35,7 +35,5 @@ ___
 
 ## Production : 
 
-Le lien pour trouver le l’app en production. 
-
-`https://prod-ecommerce-thprennes.herokuapp.com/ `
+[Vous trouverez l'app ici.](https://prod-ecommerce-thprennes.herokuapp.com/)
 ___
