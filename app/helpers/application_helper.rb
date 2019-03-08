@@ -39,9 +39,7 @@ module ApplicationHelper
 	def total_price(items)
 		i = 0.0
 		items.each do |item|
-			unless item.present?
-				i += item.item.price
-			end
+			i += item.item.price
 		end
 		i
 	end
