@@ -13,21 +13,19 @@
         <%= form_with model: Banner.new do |form| %>
 
         <div class="form-group">
-          <%= form.label :title %>
-          <%= form.text_field :title%>
+          <%= form.text_field :title, class: "form-control", placeholder: "Titre"%>
         </div>
 
         <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_field :description %>
+          <%= form.text_field :description, class: "form-control", placeholder: "Description" %>
         </div>
 
         <div class="form-group">
-          <%= form.label :banner_image %>
-          <%= form.file_field :banner_image %>
+          <%= form.file_field :banner_image, placeholder: "banner image" %>
         </div>
         <%= form.submit "Valider", class: "btn btn-primary" %>
         <% end %>
+        <br />
 
         <ul class="list-group list-group-flush">
           <% @banners.sort.reverse.each do |banner|%>
@@ -35,29 +33,24 @@
 
             <%= form_tag banner_banner_images_path(banner), method: :post, multipart: true, remote: true  do%>
             <div class="form-group">
-              <%= label_tag :banner_image %>
-              <%= image_tag banner.banner_image.variant(resize: "100x100"), id: "image_banner#{banner.id}" if banner.banner_image.attached? %>
-              <%= file_field_tag :banner_image %>
-              <%= submit_tag "Uploader" %>
+                  <%= image_tag banner.banner_image.variant(resize: "100x100"), id: "image_banner#{banner.id}" if banner.banner_image.attached? %> <br />
+                  <%= file_field_tag :banner_image %> <br />
+                  <%= submit_tag "Uploader" %>
             </div>
             <% end %>
 
             <%= form_tag(banner_path(banner.id), method: :patch, remote: true, multipart: true) do %>
 
-            <p><%= banner.id %></p>
-
             <div class="form-group">
-              <%= label_tag :title %>
-              <%= text_field_tag :title, banner.title  %>
+              <%= text_field_tag :title, banner.title, class: "form-control", placeholder: "Titre" %>
             </div>
 
             <div class="form-group">
-              <%= label_tag :description %>
-              <%= text_field_tag :description, banner.description %>
+              <%= text_field_tag :description, banner.description, class: "form-control", placeholder: "Description" %>
             </div>
 
             <%= submit_tag "Mettre à jour", class: "btn btn-outline-success" %>
-            <%= link_to "Supprimer", banner_path(banner), method: :delete, remote: true, class: "text-danger" %>
+            <%= link_to "Supprimer", banner_path(banner), method: :delete, remote: true, class: "btn btn-danger" %>
             <% end %>
           </li>
           <% end %>
