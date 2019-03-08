@@ -26,6 +26,9 @@
                 <tr class="bg-light">
 
                   <th scope="row"></th>
+                  <% puts "=" * 60  %>
+                  <% puts order.items %>
+                  <% puts "=" * 60 %>
                   <td><%= order.id %></td>
                   <td><%= order.user.email %></td>
                   <td><%= total_price(find_details(order)) %></td>
