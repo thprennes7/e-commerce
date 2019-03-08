@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   after_create :admin_order_send
   after_create :user_order_send
   belongs_to :user
-  has_many :order_detail
+  has_many :order_details
   has_many :items, through: :order_detail
 
 

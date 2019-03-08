@@ -20,6 +20,6 @@ RSpec.describe Item, type: :model do
   context "associations" do
 #   it { should have_many(:orders).through(:order_detail) }         ybo: not association ??
     it { should have_many(:carts) }
-#   it { should have_many(:order_details) }
+    it { should have_many(:order_details) }
   end
 end

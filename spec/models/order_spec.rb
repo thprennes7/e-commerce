@@ -21,7 +21,7 @@ RSpec.describe Order, type: :model do
   context "associations" do
   	it { should belong_to (:user) }
 #   it { should have_many(:items).through(:order_detail) }         ybo: not association ??
-#    it { should have_many(:order_details) }
+    it { should have_many(:order_details) }
   end
 
 end
