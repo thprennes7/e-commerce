@@ -15,7 +15,7 @@
 
             <tr class="bg-primary text-white">
               <td class="">Commande :</td>
-              <th scope="row">Id</th>
+              <td scope="row">Id</td>
               <td class="font-weight-bold">Utilisateur</td>
               <td class="font-weight-bold">Prix total</td>
               <td class="font-weight-bold">Date d'achat</td>
@@ -45,7 +45,6 @@
 
                 </tr>
                 <% find_details(order).each do |detail| %>
-                <% unless detail.present? %>
                 <tr class="bg-light">
 
                   <th scope="row"></th>
@@ -55,7 +54,6 @@
                   <td><%= detail.item.price %> €</td>
 
                 </tr>
-                <% end %>
                 <% end %>
                 <% end %>
               </tbody>
