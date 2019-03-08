@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
     @banners = Banner.all
     @items = Item.all
     @orders = Order.all
+    @count = Banner.all.length
+    @banners_sorted = @banners.sort.reverse
   end
 
   # GET /items/1
@@ -73,12 +75,19 @@ class ItemsController < ApplicationController
       redirect_to request.referer
       flash[:notice] = "Accés interdit"
     end
+
+    if already_ordered(@item)
+      flash[:notice] = "Impossible de supprimer un objet déjà commandé"
+      redirect_to request.referer
+    end
+
     @item.destroy
     respond_to do |format|
       format.js
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private
