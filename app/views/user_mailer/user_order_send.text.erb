@@ -4,7 +4,7 @@ Nous vous remercions de votre commande.
 
 Vous avez commandé les photos de chats suivante:
 <% @items_with_qty.each do |item| %>
-  <%= item[:item].title %>
+  <%= item[:title] %>
 <% end %>
 
 Montant de la commande :
