@@ -1,4 +1,6 @@
-$carousel = $('.carousel');
+$carousel = $('.carousel-inner');
 $modalBannerList = $('.list-group-flush')
-$carousel.hide().prepend("<%= j render 'banner', banner: @banner %>").slideDown(800);
-$modalBannerList.hide().prepend("<%= j render 'update-form', banner: @banner %>").slideDown(800);
+$indicatorContainer = $('.carousel-indicators')
+$carousel.hide().append("<%= j render 'banner', banner: @banner, index: @count %>").fadeIn(800);
+$modalBannerList.hide().prepend("<%= j render 'update-form', banner: @banner %>").fadeIn(800);
+$indicatorContainer.append("<%= j render 'indicators', banner: @banner, index: @count %>");

@@ -1,5 +1,24 @@
 module ApplicationHelper
 
+	def find_details(order)
+		OrderDetail.where(order_id: order.id)
+	end
+
+	# def already_ordered(item_to_del)
+	# 	Order.all.each do |order|
+	# 		order.items.each do |item|
+	# 			if item == item_to_del
+	# 				return true
+	# 				break
+	# 			end
+	# 		end
+	# 	end
+	# end
+
+	def find_banner_index(banners)
+		Banner.all.sorted.reverse.find_index(banners)
+	end
+
 	def check_access_authorization(user)
 		unless is_current_user?(user)
 			redirect_to root_path
@@ -25,39 +44,43 @@ module ApplicationHelper
 		i
 	end
 
+	def tidy_date(created_at)
+		"#{created_at.year}-#{created_at.month}-#{created_at.day}"
+	end
+
 	def items_array(items)
 		cart_array = Array.new
 		items.each do |cart_item|
-      id = cart_item.item.id
-      
-      if cart_array.any?
-        # some condition and iterations to check if we have already the item in ur array to have quantity, x is an iterrator, and y will refer to the index
-        x = 0
-        y = 0
-        cart_array.each_with_index do |item, index|
-          if item[:id] == id
-            x = 1
-            y = index
-          end
-        end
-        if x == 1
-          cart_array[y][:qty] += 1
-        else
-          cart_array << {id: id, title: cart_item.item.title, price: cart_item.item.price, qty: 1}  
-        end
-      else
-        cart_array << {id: id, title: cart_item.item.title, price: cart_item.item.price, qty: 1}
-      end
-    end
-    cart_array
+			id = cart_item.item.id
+
+			if cart_array.any?
+				# some condition and iterations to check if we have already the item in ur array to have quantity, x is an iterrator, and y will refer to the index
+				x = 0
+				y = 0
+				cart_array.each_with_index do |item, index|
+					if item[:id] == id
+						x = 1
+						y = index
+					end
+				end
+				if x == 1
+					cart_array[y][:qty] += 1
+				else
+					cart_array << {id: id, title: cart_item.item.title, price: cart_item.item.price, qty: 1}
+				end
+			else
+				cart_array << {id: id, title: cart_item.item.title, price: cart_item.item.price, qty: 1}
+			end
+		end
+		cart_array
 	end
 
 	def class_for_flash(type)
-  	case type
-    	when 'notice' then "info"
-    	when 'success' then "success"
-    	when 'danger' then "danger"
-    	when 'alert' then "warning"
-  	end
+		case type
+		when 'notice' then "info"
+		when 'success' then "success"
+		when 'danger' then "danger"
+		when 'alert' then "warning"
+		end
 	end
 end

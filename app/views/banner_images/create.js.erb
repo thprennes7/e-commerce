@@ -1,4 +1,4 @@
 $imageThumb = $('#image_banner<%= @banner.id %>');
 $banner = $('#banner<%= @banner.id %>');
 $imageThumb.replaceWith("<%= j render 'image-thumb', banner: @banner %>");
-$banner.replaceWith("<%= j render 'banner', banner: @banner %>");
+$banner.replaceWith("<%= j render 'banner', banner: @banner, index: @count %>");

@@ -1,2 +1,2 @@
 $banner = $('#banner<%= @banner.id %>');
-$banner.replaceWith('<%= j render 'banner', banner: @banner %>')
+$banner.replaceWith('<%= j render 'banner', banner: @banner, index: @count %>')

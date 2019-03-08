@@ -9,14 +9,61 @@
       </div>
 
       <div class="modal-body">
-        <% @orders.each do |order| %>
-        <%= link_to order_detail_path() %>
-        <% end %>
-      </div>
+        <table class="table">
+          <% @orders.each do |order| %>
+          <thead>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <tr class="bg-primary text-white">
+              <td class="">Commande :</td>
+              <th scope="row">Id</th>
+              <td class="font-weight-bold">Utilisateur</td>
+              <td class="font-weight-bold">Prix total</td>
+              <td class="font-weight-bold">Date d'achat</td>
+            </tr>
+            <thead>
+
+              <tbody>
+                <tr class="bg-light">
+
+                  <th scope="row"></th>
+                  <% puts "=" * 60  %>
+                  <% puts order.items %>
+                  <% puts "=" * 60 %>
+                  <td><%= order.id %></td>
+                  <td><%= order.user.email %></td>
+                  <td><%= total_price(find_details(order)) %></td>
+                  <td><%= tidy_date(order.created_at) %></td>
+
+                </tr>
+                <tr class="bg-light">
+
+                  <th scope="row" class="">Détail :</th>
+                  <td class="font-weight-bold">Quantité</td>
+                  <td class="font-weight-bold">Nom du produit</td>
+                  <td class="font-weight-bold">Prix </td>
+                  <td class="font-weight-bold">Prix actuel</td>
+
+                </tr>
+                <% find_details(order).each do |detail| %>
+                <tr class="bg-light">
+
+                  <th scope="row"></th>
+                  <td><%= detail.quantity %></td>
+                  <td><%= detail.item.title %></td>
+                  <td><%= detail.price %> €</td>
+                  <td><%= detail.item.price %> €</td>
+
+                </tr>
+                <% end %>
+                <% end %>
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>

@@ -1,21 +1,14 @@
 <div class="bd-exemple m-1">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
-		<% 
-		x = 0
-		banners.each do |banner|
-			%>
-			<li data-target="#carouselExampleIndicators" data-slide-to="<%= x %>" <% if x == 0 %>class="active" <% end -%> ></li>
-		<% x += 1 %>
+		<% banners.sort.reverse.each_with_index do |banner, index| %>
+			<li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" <% if index == 0 %>class="active" <% end -%> id="indicator<%= banner.id %>"></li>
 		<% end -%>
 	</ol>
 
 	<div class="carousel-inner">
-	 <%
-	 x = 0
-	 banners.sort.reverse.each do |banner| 
-	 %>	
-		<div class="carousel-item <% if x == 0 %> active <% end -%>" id="banner<%= banner.id %>">
+	 <% banners.sort.reverse.each_with_index do |banner, index| %>
+		<div class="carousel-item <% if index == 0 %> active <% end -%>" id="banner<%= banner.id %>">
 
 			<div class="w-100 d-block banner_custom" style="height: 300px; background-image: url(<%= polymorphic_url(banner.banner_image) if banner.banner_image.attached? %>);"></div>
 
@@ -25,8 +18,6 @@
     		<p><%= banner.description %></p>
   		</div>
   	</div>
-
-  	<% x += 1 %>
   	<% end -%>
 	</div>
 </div>
