@@ -1,23 +1,27 @@
 <!-- Mix html and ruby ​​to display the user, his email address and commands. -->
-<div class="card-group">
-	<div class="card-header">
-		<%= fa_icon "user", :class => "fa-lg grey-text fa-4x d-flex justify-content-center"%> <br />
-		<h4>Mon profil</h4>
-	</div>
+
 	<div class="card">
-		<div class="card-body">
-			<h5 class="card-title">Mes informations</h5>
-			<p class="card-text"><%= @user.email %></p>
+		<%= fa_icon "user", :class => "fa-lg grey-text fa-4x d-flex justify-content-center mt-3"%> <br />
+		<h4 class=" d-flex justify-content-center">Mon profil</h4>
+		<div class="card-group">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Mes informations</h5>
+					<p class="card-text"><%= @user.email %></p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Mes précédentes commandes</h5>
+					<div class="card-text">
+						<ul class="list-group list-group-flush">
+							<% @orders.each do |order| %>
+								<li class="list-group-item"><%= link_to "Commande du #{order.created_at}", order_path(order.id) %></li>
+							<% end -%>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="card">
-		<div class="card-body">
-			<h5 class="card-title">Mes précédentes commandes</h5>
-			<p class="card-text"><ul class="list-group list-group-flush">
-				<% @orders.each do |order| %>
-				<li class="list-group-item"><%= link_to "Commande du #{order.created_at}", order_path(order.id) %></li>
-				<% end -%>
-			</ul></p>
-		</div>
-	</div>
-</div>
+	
