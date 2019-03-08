@@ -45,6 +45,7 @@
 
                 </tr>
                 <% find_details(order).each do |detail| %>
+                <% unless detail.present? %>
                 <tr class="bg-light">
 
                   <th scope="row"></th>
@@ -54,6 +55,7 @@
                   <td><%= detail.item.price %> €</td>
 
                 </tr>
+                <% end %>
                 <% end %>
                 <% end %>
               </tbody>

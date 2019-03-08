@@ -75,11 +75,11 @@ class ItemsController < ApplicationController
       redirect_to request.referer
       flash[:notice] = "Accés interdit"
     end
-
-    if already_ordered(@item)
-      flash[:notice] = "Impossible de supprimer un objet déjà commandé"
-      redirect_to request.referer
-    end
+    # 
+    # if already_ordered(@item)
+    #   flash[:notice] = "Impossible de supprimer un objet déjà commandé"
+    #   redirect_to root_path
+    # end
 
     @item.destroy
     respond_to do |format|
