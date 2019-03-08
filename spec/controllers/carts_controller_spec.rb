@@ -16,11 +16,13 @@ RSpec.describe CartsController, type: :controller do
       expect(assigns(@cart)).respond_to?(:carts)
     end
   end
-  describe 'DELETE destroy' do
-    it "delete the cart" do
-      expect{
-        delete :destroy, current_user: {id: @user}, params: {id: @item}
-      }.to change(Cart, :count).by(-1)
-      end
-  end
+
+  # describe 'DELETE destroy' do
+  #   it "delete the cart" do
+  #     expect{
+  #       delete :destroy, current_user: {id: @user}, params: {id: @item}
+  #     }.to change(Cart, :count).by(-1)
+  #     end
+  # end
+  
 end
